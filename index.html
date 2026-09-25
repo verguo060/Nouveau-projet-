@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>On fait quoi ?</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: auto;
+      padding: 24px 18px 40px;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      margin: 0;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .secondary {
+      background: #374151;
+      color: white;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+      background: #111827;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .result-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .result-text {
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <h1>🎯 On fait quoi ?</h1>
+      <p class="subtitle">Une idée, maintenant.</p>
+    </header>
+
+    <section class="card">
+
+      <div class="question">
+        Qu'est-ce qu'on fait ?
+      </div>
+
+      <button class="primary" onclick="choisir('maintenant')">
+        📍 Maintenant
+      </button>
+
+      <button class="secondary" onclick="choisir('pascher')">
+        💰 Pas cher
+      </button>
+
+      <button class="secondary" onclick="choisir('surprise')">
+        🎲 Surprise
+      </button>
+
+      <div id="result">
+        <div class="result-title" id="resultTitle"></div>
+        <div class="result-text" id="resultText"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    function choisir(type) {
+      const result = document.getElementById("result");
+      const title = document.getElementById("resultTitle");
+      const text = document.getElementById("resultText");
+
+      result.style.display = "block";
+
+      if (type === "maintenant") {
+        title.textContent = "📍 Maintenant";
+        text.textContent =
+          "Nous allons rechercher des activités et lieux disponibles autour de toi.";
+      }
+
+      if (type === "pascher") {
+        title.textContent = "💰 Pas cher";
+        text.textContent =
+          "Nous allons rechercher des idées avec un petit budget.";
+      }
+
+      if (type === "surprise") {
+        title.textContent = "🎲 Surprise";
+        text.textContent =
+          "Une activité sera choisie pour toi selon tes préférences.";
+      }
+    }
+  </script>
+
+</body>
+</html>
